@@ -112,6 +112,7 @@ pub fn make_bindings(
         EntityType::Global(GlobalType {
             val_type: ValType::I32,
             mutable: false,
+            shared: false,
         }),
     );
     global_names.push((table_base, "__table_base".to_owned()));
@@ -123,6 +124,7 @@ pub fn make_bindings(
         EntityType::Global(GlobalType {
             val_type: ValType::I32,
             mutable: true,
+            shared: false,
         }),
     );
     global_names.push((stack_pointer, "__stack_pointer".to_owned()));
@@ -135,6 +137,7 @@ pub fn make_bindings(
             maximum: None,
             memory64: false,
             shared: false,
+            page_size_log2: None,
         }),
     );
 
@@ -154,6 +157,7 @@ pub fn make_bindings(
                 .try_into()
                 .unwrap(),
             maximum: None,
+            table64: false,
         }),
     );
 
